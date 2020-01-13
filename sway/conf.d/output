@@ -1,0 +1,15 @@
+
+
+# What should happen on idle
+exec_always swayidle -w \
+        timeout 30 'scripts/brightness dim' \
+            resume 'scripts/brightness restore' \
+        timeout 300 'swaymsg "output * dpms off"' \
+           resume 'swaymsg "output * dpms on"'
+
+
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output eDP-1 pos 0 0 scale 1
+output "Unknown MD 20095 V915TI601307" transform 180 scale .5 pos 0 1440
+
+# vim:ft=i3

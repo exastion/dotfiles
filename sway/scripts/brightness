@@ -1,0 +1,16 @@
+#! /bin/sh
+
+exec &> /dev/null
+
+case "$1" in
+    dim)
+        brightnessctl -s
+        if acpi -a | grep "off-line"; then
+            brightnessctl -c backlight s 5%
+        fi
+        ;;
+    restore)
+        brightnessctl -r
+        ;;
+esac
+exit 0

@@ -1,0 +1,8 @@
+#! /bin/bash
+
+scripts="/home/sven/.config/sway/scripts"
+
+battery=$($scripts/battery)
+hour=$(date +'%Y-%m-%d %l:%M:%S %p')
+
+echo $battery $hour

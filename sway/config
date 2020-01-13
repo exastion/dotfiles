@@ -1,0 +1,460 @@
+# sway config file
+# win
+set $mod Mod4
+# alt
+set $mod2 Mod1
+
+set $up g
+set $down r
+set $left n
+set $right t
+
+include "conf.d/input"
+include "conf.d/output"
+
+set $white       #ebdbb2
+# Use custom colors for black
+set $black       #282828
+set $darkblack   #1d2021
+set $transparent #00000000
+
+set $height 34
+
+set $wsMail     "1:  "
+set $wsNet      "2:  "
+set $wsTerm     "3:  "
+set $wsCode     "4:  "
+set $wsGit      "5:  "
+set $wsTelegram "6:  "
+set $wsFileExp  "7:  "
+
+set $default_gaps_inner 10
+set $default_gaps_outer 10
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+smart_gaps on
+
+workspace $ws1 gaps inner 0
+workspace $ws1 gaps outer 0
+workspace $ws9 gaps inner 0
+workspace $ws9 gaps outer 0
+workspace $ws10 gaps inner 0
+workspace $ws10 gaps outer 0
+
+workspace_auto_back_and_forth yes
+force_display_urgency_hint 0 ms
+focus_on_window_activation urgent
+
+floating_maximum_size -1 x -1
+
+font pango:Fira, FontAwesome 14
+
+set $TERM kitty
+
+bindsym $mod+Return exec $TERM
+
+# start thunar
+bindsym $mod+Shift+Return exec caja
+# kill focused window
+bindsym $mod+Shift+q kill
+
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu='rofi -i -show run -font "snap 12" -bg "#222222" -fg "#888888" -hlbg "#285577" -hlfg "#ffffff" -opacity 90 -m 0 -location 2' -term=$TERM
+bindsym $mod+c exec --no-startup-id j4-dmenu-desktop --dmenu="rofi -show calc -modi calc -no-show-match -no-sort"
+
+# change focus
+bindsym $mod+$left  focus left
+bindsym $mod+$right focus right
+bindsym $mod+$up    focus up
+bindsym $mod+$down  focus down
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left  focus left
+bindsym $mod+Right focus right
+bindsym $mod+Up    focus up
+bindsym $mod+Down  focus down
+
+# move focused window
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
+bindsym $mod+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+#move workspace to another display
+bindsym mod2+Control+n move workspace to output left
+bindsym mod2+Control+r move workspace to output down
+bindsym mod2+Control+g move workspace to output up
+bindsym mod2+Control+t move workspace to output right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Control+Left  move workspace to output left
+bindsym $mod+Control+Down  move workspace to output down
+bindsym $mod+Control+Up    move workspace to output up
+bindsym $mod+Control+Right move workspace to output right
+
+# split in horizontal orientation
+bindsym $mod+j splith
+
+# split in vertical orientation
+bindsym $mod+y splitv
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+bindsym $mod+$mod fullscreen toggle global
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+i layout stacking
+bindsym $mod+v layout tabbed
+bindsym $mod+l layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+Space floating toggle
+#bindsym $mod+space sticky toggle
+
+# change focus between tiling / floating windows
+#bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+u focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+#bindsym Mod1+Tab focus right
+#bindsym Mod1+Shift+Tab focus left
+
+workspace_auto_back_and_forth yes
+
+#focus_on_window_activation focus
+
+bindsym $mod2+Tab workspace back_and_forth
+
+bindsym $mod+1 workspace $wsMail
+bindsym $mod+2 workspace $wsNet
+bindsym $mod+3 workspace $wsTerm
+bindsym $mod+4 workspace $wsCode
+bindsym $mod+5 workspace $wsGit
+bindsym $mod+6 workspace $wsTelegram
+bindsym $mod+7 workspace $wsFileExp
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 0
+bindsym $mod+F1 workspace F1
+bindsym $mod+F2 workspace F2
+bindsym $mod+F3 workspace F3
+bindsym $mod+F4 workspace F4
+bindsym $mod+F5 workspace F5
+bindsym $mod+F6 workspace F6
+bindsym $mod+F7 workspace F7
+bindsym $mod+F8 workspace F8
+bindsym $mod+F9 workspace F9
+bindsym $mod+F10 workspace F10
+bindsym $mod+F11 workspace F11
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $wsMail
+bindsym $mod+Shift+2 move container to workspace $wsNet
+bindsym $mod+Shift+3 move container to workspace $wsTerm
+bindsym $mod+Shift+4 move container to workspace $wsCode
+bindsym $mod+Shift+5 move container to workspace $wsGit
+bindsym $mod+Shift+6 move container to workspace $wsTelegram
+bindsym $mod+Shift+7 move container to workspace $wsFileExp
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 0
+bindsym $mod+Shift+F1 move container to workspace F1
+bindsym $mod+Shift+F2 move container to workspace F2
+bindsym $mod+Shift+F3 move container to workspace F3
+bindsym $mod+Shift+F4 move container to workspace F4
+bindsym $mod+Shift+F5 move container to workspace F5
+bindsym $mod+Shift+F6 move container to workspace F6
+bindsym $mod+Shift+F7 move container to workspace F7
+bindsym $mod+Shift+F8 move container to workspace F8
+bindsym $mod+Shift+F9 move container to workspace F9
+bindsym $mod+Shift+F10 move container to workspace F10
+bindsym $mod+Shift+F11 move container to workspace F11
+
+bindsym Mod1+Mod4+Shift+A move container to workspace A
+bindsym Mod1+Mod4+Shift+B move container to workspace B
+bindsym Mod1+Mod4+Shift+C move container to workspace C
+bindsym Mod1+Mod4+Shift+D move container to workspace D
+bindsym Mod1+Mod4+Shift+E move container to workspace 
+bindsym Mod1+Mod4+Shift+F move container to workspace F
+bindsym Mod1+Mod4+Shift+G move container to workspace G
+bindsym Mod1+Mod4+Shift+H move container to workspace H
+bindsym Mod1+Mod4+Shift+I move container to workspace I
+bindsym Mod1+Mod4+Shift+J move container to workspace J
+bindsym Mod1+Mod4+Shift+K move container to workspace K
+bindsym Mod1+Mod4+Shift+L move container to workspace L
+bindsym Mod1+Mod4+Shift+M move container to workspace M
+bindsym Mod1+Mod4+Shift+N move container to workspace N
+bindsym Mod1+Mod4+Shift+O move container to workspace O
+bindsym Mod1+Mod4+Shift+P move container to workspace P
+bindsym Mod1+Mod4+Shift+Q move container to workspace Q
+bindsym Mod1+Mod4+Shift+R move container to workspace R
+bindsym Mod1+Mod4+Shift+S move container to workspace S
+bindsym Mod1+Mod4+Shift+T move container to workspace T
+bindsym Mod1+Mod4+Shift+U move container to workspace U
+bindsym Mod1+Mod4+Shift+V move container to workspace V
+bindsym Mod1+Mod4+Shift+W move container to workspace W
+bindsym Mod1+Mod4+Shift+X move container to workspace X
+bindsym Mod1+Mod4+Shift+Y move container to workspace Y
+bindsym Mod1+Mod4+Shift+Z move container to workspace Z
+
+bindsym Mod1+Mod4+A workspace A
+bindsym Mod1+Mod4+B workspace B
+bindsym Mod1+Mod4+C workspace C
+bindsym Mod1+Mod4+D workspace D
+bindsym Mod1+Mod4+E workspace 
+bindsym Mod1+Mod4+F workspace F
+bindsym Mod1+Mod4+G workspace G
+bindsym Mod1+Mod4+H workspace H
+bindsym Mod1+Mod4+I workspace I
+bindsym Mod1+Mod4+J workspace J
+bindsym Mod1+Mod4+K workspace K
+bindsym Mod1+Mod4+L workspace L
+bindsym Mod1+Mod4+M workspace M
+bindsym Mod1+Mod4+N workspace N
+bindsym Mod1+Mod4+O workspace O
+bindsym Mod1+Mod4+P workspace P
+bindsym Mod1+Mod4+Q workspace Q
+bindsym Mod1+Mod4+R workspace R
+bindsym Mod1+Mod4+S workspace S
+bindsym Mod1+Mod4+T workspace T
+bindsym Mod1+Mod4+U workspace U
+bindsym Mod1+Mod4+V workspace V
+bindsym Mod1+Mod4+W workspace W
+bindsym Mod1+Mod4+X workspace X
+bindsym Mod1+Mod4+Y workspace Y
+bindsym Mod1+Mod4+Z workspace Z
+
+bindsym XF86WWW workspace C
+bindsym XF86Mail workspace ✉
+bindsym XF86Tools workspace ♫
+
+bindsym Mod1+Mod4+1 workspace ✉
+bindsym Mod1+Mod4+2 workspace ♫
+bindsym Mod1+Mod4+Shift+2 move container to workspace ♫
+bindsym Mod1+Mod4+Shift+1 move container to workspace ✉
+
+# reload the configuration file
+bindsym $mod+Shift+v reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+c restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+l exec swaynag -t warning -m 'Logout?' -b 'Yes, exit sway' 'swaymsg exit'"
+
+bindsym $mod+F12 exec systemctl suspend
+
+# lock screen
+bindsym Control+$mod+l exec i3lock-fancy -gt "" -- grim
+bindsym XF86ScreenSaver exec i3lock-fancy -gt "" -- grim
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will grow the window’s height.
+        # Pressing down will shrink the window’s height.
+        bindsym $left   resize shrink width 10 px or 10 ppt
+        bindsym $up     resize grow height 10 px or 10 ppt
+        bindsym $down   resize shrink height 10 px or 10 ppt
+        bindsym $right  resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left  resize shrink width 10 px or 10 ppt
+        bindsym Up    resize grow height 10 px or 10 ppt
+        bindsym Down  resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Control+r mode "resize"
+
+bindsym $mod+Control+b border toggle
+
+bindsym $mod+m move scratchpad
+bindsym $mod+o scratchpad show
+
+# pulse audio volume control
+bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
+bindsym XF86AudioMute exec amixer set Master toggle
+bindsym --release XF86AudioLowerVolume exec pkill -SIGRTMIN+10 i3blocks
+bindsym --release XF86AudioRaiseVolume exec pkill -SIGRTMIN+10 i3blocks
+bindsym --release XF86AudioMute exec pkill -SIGRTMIN+10 i3blocks
+
+bindsym XF86MonBrightnessUp exec /usr/bin/brightnessctl -c backlight s +10%
+bindsym XF86MonBrightnessDown exec /usr/bin/brightnessctl -c backlight s 5%-
+
+bindsym Print exec slurp | grim -g - ~/Pictures/Screenshots/$(date +'Shot%Y%m%d%H%M%S.png')
+#bindsym XF86WakeUp exec fswebcam --no-banner -b -r 1280x720 - | xclip -in -t image/jpg
+
+set $eDP1 eDP1
+set $HDMI1 HDMI2
+set $DP1 DP1
+
+# workspace assignment
+workspace 1 output $eDP1
+workspace 2 output $eDP1
+workspace 3 output $eDP1
+workspace 4 output $eDP1
+workspace 5 output $eDP1
+workspace 6 output $eDP1
+workspace 7 output $eDP1
+workspace 8 output $eDP1
+workspace 9 output $eDP1
+workspace 10 output $eDP1
+workspace 11 output $eDP1
+workspace 12 output $eDP1
+
+workspace F1 output $HDMI1
+workspace F2 output $HDMI1
+workspace F3 output $HDMI1
+workspace F4 output $HDMI1
+workspace F5 output $HDMI1
+workspace F6 output $HDMI1
+workspace F7 output $HDMI1
+workspace F8 output $HDMI1
+workspace F9 output $HDMI1
+workspace F10 output $HDMI1
+workspace F11 output $HDMI1
+workspace F12 output $HDMI1
+
+workspace A output $DP1
+workspace B output $DP1
+workspace D output $DP1
+workspace F output $DP1
+workspace G output $DP1
+workspace H output $DP1
+workspace I output $DP1
+workspace J output $DP1
+workspace K output $DP1
+workspace L output $DP1
+
+assign [class="Firefox"] → C
+assign [title="VLC"] → ♫
+assign [title="Thunderbird"] → ✉
+assign [class="TelegramDesktop"] → 
+for_window [ title="^pdfpc - present" ] border none floating enable
+
+for_window [title="^Scratch$"] move scratchpad
+
+# autostart
+exec thunderbird
+exec telegram-desktop
+exec --no-startup-id firefox
+exec termite --title=Scratch
+
+#exec compton -CGb
+#exec ~/.config/i3/detect_displays.sh
+
+exec swaymsg workspace C
+
+floating_modifier $mod2 normal
+
+smart_gaps on
+gaps outer 15
+gaps inner 20
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+   position top
+#   status_command while ~/.config/sway/status; do sleep 1; done
+
+   colors {
+      statusline #ffffff
+      background #323232
+      inactive_workspace #32323200 #32323200 #5c5c5c
+   }
+  status_command i3blocks
+#  position top
+  font pango:Fira, Fonstawesome 14
+#
+  strip_workspace_numbers yes
+#
+#  colors {
+#    statusline         $white
+#    background         $darkblack
+#    separator          $transparent
+##                          BORDER       BACKGROUND   TEXT
+#    focused_workspace  $transparent $transparent $darkwhite
+#    inactive_workspace $transparent $transparent $white
+#    active_workspace   $transparent $transparent $white
+#    urgent_workspace   $darkred     $darkred     $transparent
+#    binding_mode       $darkred     $darkred     $transparent
+#  }
+}
+
+bindsym $mod+Control+g mode "gaps"
+
+mode "gaps" {
+    bindsym o      mode "gaps-o"
+    bindsym i      mode "gaps-i"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "gaps-i" {
+    bindsym p  gaps inner current plus 5
+    bindsym m gaps inner current minus 5
+    bindsym 0     gaps inner current set 0
+
+
+    bindsym Shift+p  gaps inner all plus 5
+    bindsym Shift+m gaps inner all minus 5
+    bindsym Shift+0     gaps inner all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+mode "gaps-o" {
+    bindsym p     gaps outer current plus 5
+    bindsym m     gaps outer current minus 5
+    bindsym 0     gaps outer current set 0
+
+    bindsym Shift+p     gaps outer all plus 5
+    bindsym Shift+m     gaps outer all minus 5
+    bindsym Shift+0     gaps outer all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+smart_borders no_gaps
+
+#fix graphics glitch
+for_window [class="^.*"] border none
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [class="(?i)galculator"] floating enable
+for_window [window_role="gimp-image-window"] border normal, floating enable
+for_window [title="GNU Image Manipulation Program"] floating disable, border none
+
+for_window [window_type="dialog"] floating enable
+#for_window [window_type=".*toolbox.*"] floating enable
+#for_window [window_type="menu"] floating enable
+
+for_window [class=".*settings.*"] floating enable
+#for_window [title="^Figure.*"] floating enable, border pixel
+
+for_window [window_role="Dialog"] floating enable, border normal, resize set 640 480
+for_window [window_role="Msgcompose"] floating enable, border normal, resize set 640 480
+
+#exec --no-startup-id setxkbmap -model thinkpad -layout "de" -variant ",neo" -option "grp:win_shift_toggle"
+# vim:filetype=i3config

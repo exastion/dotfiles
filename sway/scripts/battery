@@ -1,0 +1,8 @@
+#! /bin/bash
+
+fmt='s/Battery \([0-9]\):/ /'
+
+bat0=$(acpi -b | grep 'Battery 0' | sed "$fmt" | sed 's/Unknown, //')
+bat1=$(acpi -b | grep 'Battery 1' | sed "$fmt" | sed 's/Unknown, //')
+
+echo $bat0 $bat1
