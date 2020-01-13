@@ -6,7 +6,23 @@
 "                ██╗╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
 "                ╚═╝ ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝ 
 
+" => Vundle {{{
 
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'lervag/vimtex'
+Plugin '907th/vim-auto-save'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'tpope/vim-fugitive'
+Plugin 'SirVer/ultisnips'
+Plugin 'mboughaba/i3config.vim'
+
+call vundle#end()
+
+" }}}
 " => General {{{
 
 set nocompatible
@@ -210,14 +226,6 @@ endfunction
 
 " }}}
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'lervag/vimtex'
-Plugin '907th/vim-auto-save'
-
-call vundle#end()
 
 set modeline
 set modelines=1
