@@ -19,6 +19,9 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-fugitive'
 Plugin 'SirVer/ultisnips'
 Plugin 'mboughaba/i3config.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()
 
@@ -141,14 +144,14 @@ augroup END
 " }}}
 " => Status line {{{
 
-set laststatus=2
+"set laststatus=2
 
-set statusline=%<%f\
-set statusline+=%w%h%m%r
-set statusline+=%{fugitive#statusline()}
-set statusline+=\ [%{&ff}/%Y]
-set statusline+=\ [%{getcwd()}]
-set statusline+=%=%-14.(%l,%c%V%)\ %p%%
+"set statusline=%<%f\
+"set statusline+=%w%h%m%r
+"set statusline+=%{fugitive#statusline()}
+"set statusline+=\ [%{&ff}/%Y]
+"set statusline+=\ [%{getcwd()}]
+"set statusline+=%=%-14.(%l,%c%V%)\ %p%%
 
 " }}}
 " => Editing mappings {{{
