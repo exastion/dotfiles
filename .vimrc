@@ -132,6 +132,7 @@ imap <Home> <ESC> :call Home()<CR>i
 
 
 map <silent> <leader><cr> :noh<cr>
+map <silent> <Esc><Esc> :noh<cr>
 
 nnoremap <silent> <leader>cd :cd %:p:h<CR>
 
