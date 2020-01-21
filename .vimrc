@@ -72,6 +72,9 @@ set ttimeoutlen=100
 set display=truncate
 set mouse=a
 
+nnoremap <silent> * *<C-o>
+nmap <silent> <2-leftmouse> *
+
 set number relativenumber
 augroup numbertoggle
     autocmd!
