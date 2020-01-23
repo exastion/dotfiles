@@ -22,6 +22,7 @@ Plugin 'mboughaba/i3config.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'majutsushi/tagbar'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 
@@ -39,6 +40,8 @@ filetype indent on
 set autoread
 
 let mapleader = ","
+
+set updatetime=100
 
 " }}}
 " => User interface {{{
