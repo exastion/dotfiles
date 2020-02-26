@@ -79,7 +79,7 @@ nnoremap <silent> * *<C-o>
 nmap <silent> <2-leftmouse> *
 
 nmap <F8> :TagbarToggle<CR>
-nmap to :tabe
+nmap to :tabe 
 nmap tc :tabc<CR>
 
 set number relativenumber
