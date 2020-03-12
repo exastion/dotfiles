@@ -22,6 +22,7 @@ Plugin 'mboughaba/i3config.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'majutsushi/tagbar'
+Plugin 'evidens/vim-twig'
 
 call vundle#end()
 
@@ -78,6 +79,8 @@ augroup numbertoggle
     autocmd BufEnter,FocusGained,InsertLeave    * set relativenumber
     autocmd BufLeave,FocusLost,InsertEnter      * set norelativenumber
 augroup END
+
+nmap <F8> :TagbarToggle<CR>
 
 " }}}
 " => Colors and Fonts {{{
