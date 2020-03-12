@@ -23,6 +23,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'majutsushi/tagbar'
 Plugin 'evidens/vim-twig'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 
@@ -40,6 +41,8 @@ filetype indent on
 set autoread
 
 let mapleader = ","
+
+set updatetime=100
 
 " }}}
 " => User interface {{{
@@ -72,6 +75,13 @@ set ttimeout
 set ttimeoutlen=100
 set display=truncate
 set mouse=a
+
+nnoremap <silent> * *<C-o>
+nmap <silent> <2-leftmouse> *
+
+nmap <F8> :TagbarToggle<CR>
+nmap to :tabe 
+nmap tc :tabc<CR>
 
 set number relativenumber
 augroup numbertoggle
@@ -132,6 +142,7 @@ imap <Home> <ESC> :call Home()<CR>i
 
 
 map <silent> <leader><cr> :noh<cr>
+map <silent> <Esc><Esc> :noh<cr>
 
 nnoremap <silent> <leader>cd :cd %:p:h<CR>
 
